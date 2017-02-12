@@ -8,6 +8,9 @@
 #include <common.h>
 #include <asm/io.h>
 #include <asm/arch/gpio.h>
+#include <fdtdec.h>
+#include <fdt_support.h>
+#include <dt-bindings/pinctrl/sun4i-a10.h>
 
 void sunxi_gpio_set_cfgbank(struct sunxi_gpio *pio, int bank_offset, u32 val)
 {
@@ -83,4 +86,62 @@ int sunxi_gpio_parse_pin_name(const char *pin_name)
 	pin += simple_strtol(&pin_name[2], NULL, 10);
 
 	return pin;
+}
+
+int sunxi_gpio_setup_dt_pins(const void * volatile fdt_blob, int node,
+			     const char * mux_name, int mux_sel)
+{
+	int drive, pull, pin, i;
+	const char *pin_name;
+	int offset;
+
+	offset = fdtdec_lookup_phandle(fdt_blob, node, "pinctrl-0");
+	if (offset < 0)
+		return offset;
+
+	drive = fdt_getprop_u32_default_node(fdt_blob, offset, 0,
+					     "drive-strength", 0);
+	if (drive) {
+		if (drive <= 10)
+			drive = SUN4I_PINCTRL_10_MA;
+		else if (drive <= 20)
+			drive = SUN4I_PINCTRL_20_MA;
+		else if (drive <= 30)
+			drive = SUN4I_PINCTRL_30_MA;
+		else
+			drive = SUN4I_PINCTRL_40_MA;
+	} else {
+		drive = fdt_getprop_u32_default_node(fdt_blob, offset, 0,
+						     "allwinner,drive", 4);
+	}
+
+	if (fdt_get_property(fdt_blob, offset, "bias-pull-up", NULL))
+		pull = SUN4I_PINCTRL_PULL_UP;
+	else if (fdt_get_property(fdt_blob, offset, "bias-disable", NULL))
+		pull = SUN4I_PINCTRL_NO_PULL;
+	else if (fdt_get_property(fdt_blob, offset, "bias-pull-down", NULL))
+		pull = SUN4I_PINCTRL_PULL_DOWN;
+	else
+		pull = fdt_getprop_u32_default_node(fdt_blob, offset, 0,
+						    "allwinner,pull", 0);
+
+	for (i = 0; ; i++) {
+		pin_name = fdt_stringlist_get(fdt_blob, offset,
+					      "allwinner,pins", i, NULL);
+		if (!pin_name) {
+			pin_name = fdt_stringlist_get(fdt_blob, offset,
+						      "pins", i, NULL);
+			if (!pin_name)
+				break;
+		}
+		pin = sunxi_gpio_parse_pin_name(pin_name);
+		if (pin < 0)
+			continue;
+
+		sunxi_gpio_set_cfgpin(pin, mux_sel);
+		sunxi_gpio_set_drv(pin, drive);
+		sunxi_gpio_set_pull(pin, pull);
+	}
+
+	return i;
 }

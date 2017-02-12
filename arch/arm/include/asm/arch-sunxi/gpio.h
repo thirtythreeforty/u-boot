@@ -248,5 +248,7 @@ static inline int axp_gpio_init(void) { return 0; }
 #endif
 
 int sunxi_gpio_parse_pin_name(const char *pin_name);
+int sunxi_gpio_setup_dt_pins(const void * volatile fdt_blob, int node,
+			     const char * mux_name, int mux_sel);
 
 #endif /* _SUNXI_GPIO_H */
