@@ -17,4 +17,7 @@
  */
 #include <configs/sunxi-common.h>
 
+#define CONFIG_VIDEO_LOGO
+#define CONFIG_VIDEO_BMP_LOGO
+
 #endif /* __CONFIG_H */

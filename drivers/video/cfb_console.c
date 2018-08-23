@@ -74,7 +74,7 @@
 #if defined(CONFIG_VIDEO_MXS)
 #define VIDEO_FB_16BPP_WORD_SWAP
 #endif
-
+#define CONFIG_HIDE_LOGO_VERSION
 /*
  * Defines for the MB862xx driver
  */
