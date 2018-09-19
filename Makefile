@@ -1007,7 +1007,7 @@ endif
 	@# Check that this build does not use CONFIG options that we do not
 	@# know about unless they are in Kconfig. All the existing CONFIG
 	@# options are whitelisted, so new ones should not be added.
-	$(call cmd,cfgcheck,u-boot.cfg)
+#	$(call cmd,cfgcheck,u-boot.cfg)
 
 PHONY += dtbs
 dtbs: dts/dt.dtb
