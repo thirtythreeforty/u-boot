@@ -27,8 +27,11 @@
 #include <asm/arch/dram_sunxi_dw.h>
 #elif defined(CONFIG_MACH_SUN9I)
 #include <asm/arch/dram_sun9i.h>
+<<<<<<< HEAD
 #elif defined(CONFIG_MACH_SUN50I_H6)
 #include <asm/arch/dram_sun50i_h6.h>
+=======
+>>>>>>> 1e578c996c... sunxi: add support for suniv architecture
 #elif defined(CONFIG_MACH_SUNIV)
 #include <asm/arch/dram_suniv.h>
 #else

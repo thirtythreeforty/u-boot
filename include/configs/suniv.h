@@ -7,6 +7,11 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
+<<<<<<< HEAD
+=======
+#define CONFIG_SUNXI_USB_PHYS 1
+
+>>>>>>> 1e578c996c... sunxi: add support for suniv architecture
 /*
  * Include common sunxi configuration where most the settings are
  */

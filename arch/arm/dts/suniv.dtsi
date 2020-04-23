@@ -76,6 +76,7 @@
 			};
 		};
 
+<<<<<<< HEAD
 		spi0: spi@1c05000 {
 			compatible = "allwinner,suniv-spi",
 				     "allwinner,sun8i-h3-spi";
@@ -91,6 +92,10 @@
 
 		ccu: clock@1c20000 {
 			compatible = "allwinner,suniv-f1c100s-ccu";
+=======
+		ccu: clock@1c20000 {
+			compatible = "allwinner,suniv-ccu";
+>>>>>>> 1e578c996c... sunxi: add support for suniv architecture
 			reg = <0x01c20000 0x400>;
 			clocks = <&osc24M>, <&osc32k>;
 			clock-names = "hosc", "losc";
@@ -116,6 +121,7 @@
 			#interrupt-cells = <3>;
 			#gpio-cells = <3>;
 
+<<<<<<< HEAD
 			spi0_pins_a: spi0-pins-pc {
 				pins = "PC0", "PC1", "PC2", "PC3";
 				function = "spi0";
@@ -130,6 +136,12 @@
 				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
 				function = "mmc0";
 			};
+=======
+			uart0_pins_a: uart-pins-pe {
+				pins = "PE0", "PE1";
+				function = "uart0";
+			};
+>>>>>>> 1e578c996c... sunxi: add support for suniv architecture
 		};
 
 		timer@1c20c00 {
@@ -202,6 +214,7 @@
 			#phy-cells = <1>;
 			status = "disabled";
 		};
+<<<<<<< HEAD
 
 		mmc0: mmc@1c0f000 {
 			compatible = "allwinner,suniv-f1c100s-mmc",
@@ -244,5 +257,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 		};
+=======
+>>>>>>> 1e578c996c... sunxi: add support for suniv architecture
 	};
 };
