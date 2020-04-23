@@ -16,9 +16,13 @@
 	aliases {
 		serial0 = &uart0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		spi0 = &spi0;
 =======
 >>>>>>> fc201cfe0b... sunxi: suniv: add support for Lichee Pi Nano
+=======
+		spi0 = &spi0;
+>>>>>>> d151f1e58b... sunxi: enable SPI NOR on Lichee Pi Nano
 	};
 
 	chosen {
@@ -31,6 +35,9 @@
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d151f1e58b... sunxi: enable SPI NOR on Lichee Pi Nano
 &spi0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi0_pins_a>;
@@ -45,10 +52,13 @@
 	};
 };
 
+<<<<<<< HEAD
 &uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart0_pe_pins>;
 =======
+=======
+>>>>>>> d151f1e58b... sunxi: enable SPI NOR on Lichee Pi Nano
 &uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart0_pins_a>;
