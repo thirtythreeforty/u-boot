@@ -77,6 +77,9 @@
 		};
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 920e695e55... sunxi: add SPI0 node for suniv
 		spi0: spi@1c05000 {
 			compatible = "allwinner,suniv-spi",
 				     "allwinner,sun8i-h3-spi";
@@ -90,9 +93,12 @@
 			#size-cells = <0>;
 		};
 
+<<<<<<< HEAD
 		ccu: clock@1c20000 {
 			compatible = "allwinner,suniv-f1c100s-ccu";
 =======
+=======
+>>>>>>> 920e695e55... sunxi: add SPI0 node for suniv
 		ccu: clock@1c20000 {
 			compatible = "allwinner,suniv-ccu";
 >>>>>>> 1e578c996c... sunxi: add support for suniv architecture
@@ -122,11 +128,15 @@
 			#gpio-cells = <3>;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 920e695e55... sunxi: add SPI0 node for suniv
 			spi0_pins_a: spi0-pins-pc {
 				pins = "PC0", "PC1", "PC2", "PC3";
 				function = "spi0";
 			};
 
+<<<<<<< HEAD
 			uart0_pe_pins: uart-pins-pe {
 				pins = "PE0", "PE1";
 				function = "uart0";
@@ -137,6 +147,8 @@
 				function = "mmc0";
 			};
 =======
+=======
+>>>>>>> 920e695e55... sunxi: add SPI0 node for suniv
 			uart0_pins_a: uart-pins-pe {
 				pins = "PE0", "PE1";
 				function = "uart0";
