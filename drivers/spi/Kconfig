@@ -229,6 +229,20 @@ config STM32_QSPI
 	  used to access the SPI NOR flash chips on platforms embedding
 	  this ST IP core.
 
+config SUN6I_SPI
+	bool "Allwinner (sun6i+) SPI driver"
+	help
+	  Enable the SPI driver for new Allwinner SoCs.
+
+	  This driver can be used to access the SPI NOR flash on for
+	  communciation with SPI peripherals platforms embedding the
+	  Allwinner SoC.  This driver supports the device-model (only)
+	  and has support for GPIOs as additional chip-selects.
+
+	  For recent platforms (e.g. sun50i), dual-IO receive mode is
+	  also supported, when configured for a SPI-NOR flash in the
+	  device tree.
+
 config TEGRA114_SPI
 	bool "nVidia Tegra114 SPI driver"
 	help

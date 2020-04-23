@@ -48,7 +48,11 @@ obj-$(CONFIG_PL022_SPI) += pl022_spi.o
 obj-$(CONFIG_RENESAS_RPC_SPI) += renesas_rpc_spi.o
 obj-$(CONFIG_ROCKCHIP_SPI) += rk_spi.o
 obj-$(CONFIG_SANDBOX_SPI) += sandbox_spi.o
+<<<<<<< HEAD
 obj-$(CONFIG_SPI_SUNXI) += spi-sunxi.o
+=======
+obj-$(CONFIG_SUN6I_SPI) += sun6i_spi.o
+>>>>>>> 7646d45fc4... spi: sunxi_spi: Add DM SPI driver for A31/A80/A64
 obj-$(CONFIG_SH_SPI) += sh_spi.o
 obj-$(CONFIG_SH_QSPI) += sh_qspi.o
 obj-$(CONFIG_STM32_QSPI) += stm32_qspi.o
