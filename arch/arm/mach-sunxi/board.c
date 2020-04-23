@@ -272,6 +272,26 @@ u32 spl_boot_device(void)
  * boot sequence in BROM: mmc0->spinor->fail.
  */
 void board_boot_order(u32 *spl_boot_list)
+<<<<<<< HEAD
+=======
+{
+	/*
+	 * See the comments above in sunxi_get_boot_device() for infomation
+	 * about FEL boot.
+	 */
+	if (!is_boot0_magic(SPL_ADDR + 4)) {
+		spl_boot_list[0] = BOOT_DEVICE_BOARD;
+		return;
+	}
+
+	spl_boot_list[0] = BOOT_DEVICE_MMC1;
+	spl_boot_list[1] = BOOT_DEVICE_SPI;
+}
+#endif
+
+/* No confirmation data available in SPL yet. Hardcode bootmode */
+u32 spl_boot_mode(const u32 boot_device)
+>>>>>>> f404f99483... sunxi: suniv: add boot sequence for SPL to try
 {
 	/*
 	 * See the comments above in sunxi_get_boot_device() for infomation
