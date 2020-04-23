@@ -55,6 +55,15 @@ int timer_init(void)
 	return 0;
 }
 
+<<<<<<< HEAD
+=======
+/* timer without interrupts */
+ulong get_timer(ulong base)
+{
+	return get_timer_masked() - base;
+}
+
+>>>>>>> 0562f46344... arm: arm926ej-s: add sunxi code
 ulong get_timer_masked(void)
 {
 	/* current tick value */
@@ -72,12 +81,15 @@ ulong get_timer_masked(void)
 	return gd->arch.tbl;
 }
 
+<<<<<<< HEAD
 /* timer without interrupts */
 ulong get_timer(ulong base)
 {
 	return get_timer_masked() - base;
 }
 
+=======
+>>>>>>> 0562f46344... arm: arm926ej-s: add sunxi code
 /* delay x useconds */
 void __udelay(unsigned long usec)
 {
