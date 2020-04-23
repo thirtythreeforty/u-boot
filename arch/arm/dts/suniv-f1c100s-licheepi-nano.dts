@@ -15,7 +15,10 @@
 
 	aliases {
 		serial0 = &uart0;
+<<<<<<< HEAD
 		spi0 = &spi0;
+=======
+>>>>>>> fc201cfe0b... sunxi: suniv: add support for Lichee Pi Nano
 	};
 
 	chosen {
@@ -27,6 +30,7 @@
 	status = "okay";
 };
 
+<<<<<<< HEAD
 &spi0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi0_pins_a>;
@@ -44,6 +48,11 @@
 &uart0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&uart0_pe_pins>;
+=======
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pins_a>;
+>>>>>>> fc201cfe0b... sunxi: suniv: add support for Lichee Pi Nano
 	status = "okay";
 };
 
