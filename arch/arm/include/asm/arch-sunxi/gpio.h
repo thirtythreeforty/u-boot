@@ -247,4 +247,6 @@ int axp_gpio_init(void);
 static inline int axp_gpio_init(void) { return 0; }
 #endif
 
+int sunxi_gpio_parse_pin_name(const char *pin_name);
+
 #endif /* _SUNXI_GPIO_H */

@@ -68,3 +68,19 @@ int sunxi_gpio_set_pull(u32 pin, u32 val)
 
 	return 0;
 }
+
+int sunxi_gpio_parse_pin_name(const char *pin_name)
+{
+	int pin;
+
+	if (pin_name[0] != 'P')
+		return -1;
+
+	if (pin_name[1] < 'A' || pin_name[1] > 'Z')
+		return -1;
+
+	pin = (pin_name[1] - 'A') << 5;
+	pin += simple_strtol(&pin_name[2], NULL, 10);
+
+	return pin;
+}

@@ -508,8 +508,12 @@ static int parse_phy_pins(struct udevice *dev)
 					      "pins", i, NULL);
 		if (!pin_name)
 			break;
+<<<<<<< HEAD
 
 		pin = sunxi_name_to_gpio(pin_name);
+=======
+		pin = sunxi_gpio_parse_pin_name(pin_name);
+>>>>>>> 50b0225b76... introduce and use sunxi_gpio_parse_pin_name()
 		if (pin < 0)
 			continue;
 
